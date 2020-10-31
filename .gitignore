@@ -28,3 +28,6 @@ target/
 .settings
 .vscode
 ajcore*
+vendor/
+composer.lock
+composer.phar

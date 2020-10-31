@@ -1,23 +1,16 @@
 <?php
+namespace MyException;
 
 
-class BadFormatException extends Exception
+class BadFormatException extends \Exception
 {
-    private $message;
+    public function __construct($message, $code = 0, Exception $previous = null) {
 
-    /**
-     * @param $message
-     */
-    public function __construct($message)
-    {
-        Exception::__construct('Bad format exception '.$message->oneLine);
-        $this->message = $message;
+        parent::__construct($message, $code, $previous);
     }
-    /**
-     * @return String
-     */
-    public function getTextMessage()
+
+    public function __toString()
     {
-        return $this->message;
+        return __CLASS__ . ": [{$this->code}]: {$this->message}\n";
     }
 }

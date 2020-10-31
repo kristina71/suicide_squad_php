@@ -1,4 +1,5 @@
 <?php
+namespace day17;
 
 error_reporting(0);
 function num2str($num)

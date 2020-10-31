@@ -1,4 +1,6 @@
 <?php
+namespace day19;
+
 $array=[18,31,24,12,45,13,41];
 $values=[13,41];
 
