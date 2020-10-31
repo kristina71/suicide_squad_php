@@ -1,7 +1,10 @@
 <?php
 namespace day17;
 
-error_reporting(0);
+/**
+ * @param $num
+ * @return string
+ */
 function num2str($num)
 {
     $nul = 'ноль';
@@ -45,7 +48,14 @@ function num2str($num)
     return trim(preg_replace('/ {2,}/', ' ', join(' ', $out)));
 }
 
-
+/**
+ * @param $n
+ * @param $f1
+ * @param $f2
+ * @param $f5
+ * @return mixed
+ *
+ */
 function morph($n, $f1, $f2, $f5)
 {
     $n = abs(intval($n)) % 100;
@@ -56,8 +66,43 @@ function morph($n, $f1, $f2, $f5)
     return $f5;
 }
 
+
+/**
+ * можно было-бы сразу сделать не костыльно - но мы не ищем лпгких путей)
+ * @param $value
+ * @return string
+ */
+function digitToString($value)
+{
+    $f = new \NumberFormatter('ru', \NumberFormatter::SPELLOUT);
+    $str = $f->format($value);
+
+    // Склонение слова "котик".
+    $num = $value % 100;
+    if ($num > 19) {
+        $num = $num % 10;
+    }
+
+    switch ($num) {
+        case 1: $cat = 'котик'; break;
+        case 2: $cat = 'котика'; break;
+        case 3: $cat = 'котика'; break;
+        case 4: $cat = 'котика'; break;
+        default: $cat = 'котиков';
+    }
+
+    return $str . " " . $cat . " не знают php";
+}
+
 echo num2str(0) . "<br>";      // ноль котиков
 echo num2str(150) . "<br>"; // сто пятьдесят котиков
 echo num2str(1203) . "<br>";   // одна тысяча двести три котика
 echo num2str(2541) . "<br>";   // две тысячи пятьсот сорок один котик
-echo num2str(100000); // сто тысяч котиков
+echo num2str(100000) ."<br>"; // сто тысяч котиков
+
+echo "------";
+echo digitToString(0) . "<br>";      // ноль котиков
+echo digitToString(150) . "<br>"; // сто пятьдесят котиков
+echo digitToString(1203) . "<br>";   // одна тысяча двести три котика
+echo digitToString(2541) . "<br>";   // две тысячи пятьсот сорок один котик
+echo digitToString(100000); // сто тысяч котиков

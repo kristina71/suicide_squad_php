@@ -1,6 +1,7 @@
 <?php
 
 use PHPUnit\Framework\TestCase;
+
 require_once __DIR__."/../day17_1.php";
 require_once __DIR__."/../day19_1.php";
 //require_once __DIR__."/../day18_1.php";
@@ -17,6 +18,17 @@ class SimpleTest extends TestCase
     {
         $this->assertEquals($expected, \day17\num2str($number));
     }
+
+    /**
+     * @test
+     * @dataProvider catProvider
+     * @group day17
+     */
+    /*public function testCats2($expected, $number)
+    {
+        $this->assertEquals($expected, \day17\digitToString($number));
+    }
+    */
 
     public function catProvider()
     {

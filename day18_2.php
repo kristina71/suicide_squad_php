@@ -10,6 +10,14 @@ $sum = 30000;
 $existValues = [100=>3,200=>0,500=>1,2000=>1,5000=>10];
 $result = [];
 
+/**
+ * @param $sum
+ * @param $nominalArray
+ * @param $result
+ * @param $existValues
+ * @throws \MyException\BadFormatException
+ * @throws \MyException\BadSumException
+ */
 function getNominalAndCount($sum, $nominalArray, &$result, $existValues) {
     checkSum($sum);
     checkArrayFormat($nominalArray);
@@ -38,6 +46,11 @@ function getNominalAndCount($sum, $nominalArray, &$result, $existValues) {
     }
 }
 
+/**
+ * @param $array
+ * @return mixed
+ * @throws \MyException\BadFormatException
+ */
 function checkArrayFormat($array){
     foreach ($array as $k=>$val){
         if (empty($val) || (!is_numeric($val)))
@@ -49,6 +62,11 @@ function checkArrayFormat($array){
     return $array;
 }
 
+/**
+ * @param $nominalArray
+ * @param $existValues
+ * @return mixed
+ */
 function deleteNotUseNominal($nominalArray, $existValues){
     foreach ($nominalArray as $nominalKey => $nominalValue){
         if (!array_key_exists($nominalValue,$existValues) || empty($existValues[$nominalValue]))
@@ -58,6 +76,10 @@ function deleteNotUseNominal($nominalArray, $existValues){
     return $nominalArray;
 }
 
+/**
+ * @param $sum
+ * @throws \MyException\BadSumException
+ */
 function checkSum($sum){
     if ($sum %100)
         throw new \MyException\BadSumException("Bad sum exception");

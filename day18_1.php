@@ -5,6 +5,12 @@ $nominalArray = [100,200, 5000, 1000,2000,500];
 $sum = 1000;
 $result = [];
 
+/**
+ * @param $sum
+ * @param $nominalArray
+ * @param $result
+ * @throws \MyException\BadFormatException
+ */
 function getNominalAndCount($sum, $nominalArray, &$result) {
 
         checkArrayFormat($nominalArray);
@@ -28,6 +34,10 @@ function getNominalAndCount($sum, $nominalArray, &$result) {
         }
 }
 
+/**
+ * @param array $array
+ * @return array
+ */
 function checkArrayFormat(Array $array){
     foreach ($array as $k=>$val){
         if (empty($val) || (!is_numeric($val)))
