@@ -1,7 +1,7 @@
 <?php
 
 
-class BadFormatException
+class BadFormatException extends Exception
 {
     private $message;
 
