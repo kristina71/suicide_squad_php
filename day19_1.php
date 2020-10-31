@@ -1,5 +1,7 @@
 <?php
 namespace day19;
+require __DIR__.'/exceptions/BadSumException.php';
+require __DIR__.'/exceptions/BadFormatException.php';
 
 $array=[18,31,24,12,45,13,41];
 $values=[13,41];
@@ -24,7 +26,7 @@ function checkArrayFormat(Array $array){
             unset($array[$k]);
     }
     if (empty($array))
-        throw new Exception("Empty array");
+        throw new \MyException\BadFormatException("Empty array");
 
     return $array;
 }

@@ -1,10 +1,12 @@
 <?php
+namespace day18;
+
 require __DIR__.'/vendor/autoload.php';
-require __DIR__.'/exceptions/BadSumException.php';
-require __DIR__.'/exceptions/BadFormatException.php';
+require_once __DIR__.'/exceptions/BadSumException.php';
+require_once __DIR__.'/exceptions/BadFormatException.php';
 
 $nominalArray = [100,200, 500, 1000,2000,5000];
-$sum = 30010;
+$sum = 30000;
 $existValues = [100=>3,200=>0,500=>1,2000=>1,5000=>10];
 $result = [];
 
@@ -58,7 +60,6 @@ function deleteNotUseNominal($nominalArray, $existValues){
 function checkSum($sum){
     if ($sum %100)
         throw new \MyException\BadSumException("Bad sum exception");
-
 }
 
 getNominalAndCount($sum, $nominalArray,$result, $existValues);

@@ -3,6 +3,7 @@
 use PHPUnit\Framework\TestCase;
 require_once __DIR__."/../day17_1.php";
 require_once __DIR__."/../day19_1.php";
+require_once __DIR__."/../day18_2.php";
 
 class SimpleTest extends TestCase
 {
@@ -43,5 +44,28 @@ class SimpleTest extends TestCase
             [[18], [14], false],
             [[18], [14,18], false]
         ];
+    }
+
+    /**
+     * @test
+     */
+    public function testEmptyArray(){
+        $array=[];
+        $values=[];
+        $this->expectException(\MyException\BadFormatException::class);
+        $this->expectExceptionMessage("Empty array");
+        \day19\checkArrayFormat($array);
+        \day19\checkArrayFormat($values);
+    }
+
+
+    /**
+     * @test
+     */
+    public function testBadSumException(){
+        $sum=15;
+        $this->expectException(\MyException\BadSumException::class);
+        $this->expectExceptionMessage("Bad sum exception");
+        \day18\checkSum($sum);
     }
 }
