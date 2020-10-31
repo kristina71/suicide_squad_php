@@ -19,7 +19,7 @@ function num2str($num)
         array('миллиард', 'миллиарда', 'миллиардов', 0),
     );
 
-    list($cat, $php) = explode(' ', sprintf("%015.2f", floatval($num)));
+    list($cat, $php) = explode(' ', sprintf("%015.2f", floatval($num))); // kostil =)
     $out = array();
     if (intval($cat) > 0) {
         foreach (str_split($cat, 3) as $uk => $v) {
@@ -32,14 +32,14 @@ function num2str($num)
             $out[] = $hundred[$i1]; // 1xx-9xx
             if ($i2 > 1) $out[] = $tens[$i2] . ' ' . $ten[$gender][$i3]; // 20-99
             else $out[] = $i2 > 0 ? $a20[$i3] : $ten[$gender][$i3]; // 10-19 | 1-9
-            // units without cat & kop
+
             if ($uk > 1) $out[] = morph($v, $unit[$uk][0], $unit[$uk][1], $unit[$uk][2]);
         }
     } else {
         $out[] = $nul;
     }
     $out[] = morph(intval($cat), $unit[1][0], $unit[1][1], $unit[1][2]); // cat
-    $out[] = $php . ' ' . morph($php, $unit[0][0], $unit[0][1], $unit[0][2]);
+    $out[] = $php . ' ' . morph($php, $unit[0][0], $unit[0][1], $unit[0][2]); // php
 
     return trim(preg_replace('/ {2,}/', ' ', join(' ', $out)));
 }
