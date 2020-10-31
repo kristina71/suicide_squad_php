@@ -3,6 +3,7 @@
 use PHPUnit\Framework\TestCase;
 require_once __DIR__."/../day17_1.php";
 require_once __DIR__."/../day19_1.php";
+//require_once __DIR__."/../day18_1.php";
 require_once __DIR__."/../day18_2.php";
 
 class SimpleTest extends TestCase
@@ -10,6 +11,7 @@ class SimpleTest extends TestCase
     /**
      * @test
      * @dataProvider catProvider
+     * @group day17
      */
     public function testCats($expected, $number)
     {
@@ -48,6 +50,7 @@ class SimpleTest extends TestCase
 
     /**
      * @test
+     * @group day19
      */
     public function testEmptyArray(){
         $array=[];
@@ -61,11 +64,23 @@ class SimpleTest extends TestCase
 
     /**
      * @test
+     * @group day18
      */
     public function testBadSumException(){
         $sum=15;
         $this->expectException(\MyException\BadSumException::class);
         $this->expectExceptionMessage("Bad sum exception");
         \day18\checkSum($sum);
+    }
+
+    /**
+     * @test
+     * @group day18
+     */
+    public function testDeleteNotUseParam(){
+        $nominalArray = [100,200, 500, 1000,2000,5000];
+        $existValues = [100=>3,200=>0,500=>1,2000=>1,5000=>10];
+        $expectedArray = [100,500,2000,5000];
+        $this->assertEquals(\day18\deleteNotUseNominal($nominalArray, $existValues),$expectedArray);
     }
 }

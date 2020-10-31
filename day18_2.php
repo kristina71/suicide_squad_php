@@ -54,6 +54,7 @@ function deleteNotUseNominal($nominalArray, $existValues){
         if (!array_key_exists($nominalValue,$existValues) || empty($existValues[$nominalValue]))
             unset($nominalArray[$nominalKey]);
     }
+    sort($nominalArray);
     return $nominalArray;
 }
 
