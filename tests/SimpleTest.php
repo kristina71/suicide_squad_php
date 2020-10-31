@@ -44,6 +44,7 @@ class SimpleTest extends TestCase
             [[18,31,24,12,45,13,41], [14,41], false],
             [[18], [14,41], false],
             [[18], [14], false],
+            [[18], [18], true],
             [[18], [14,18], false]
         ];
     }

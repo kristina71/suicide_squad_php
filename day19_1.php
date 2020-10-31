@@ -6,18 +6,20 @@ require __DIR__.'/exceptions/BadFormatException.php';
 $array=[18,31,24,12,45,13,41];
 $values=[13,41];
 
-
 function checkArray(Array $array, Array $values){
     checkArrayFormat($values);
     checkArrayFormat($array);
+    $flag=false;
 
     foreach ($values as $value) {
-        if (array_search($value,$array)) {
-            continue;
+        if (in_array($value,$array)) {
+            $flag=true;
         }
-        else return false;
+        else {
+            return false;
+        }
     }
-    return true;
+    return $flag;
 }
 
 function checkArrayFormat(Array $array){
