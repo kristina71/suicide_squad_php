@@ -2,10 +2,9 @@
 
 use PHPUnit\Framework\TestCase;
 
-require_once __DIR__."/../day17_1.php";
-require_once __DIR__."/../day19_1.php";
-//require_once __DIR__."/../day18_1.php";
-require_once __DIR__."/../day18_2.php";
+require_once __DIR__ . "/../day17.php";
+require_once __DIR__ . "/../day19.php";
+require_once __DIR__ . "/../day18.php";
 
 class SimpleTest extends TestCase
 {
@@ -19,6 +18,7 @@ class SimpleTest extends TestCase
         $this->assertEquals($expected, \day17\num2str($number));
     }
 
+    /*
     /**
      * @test
      * @dataProvider catProvider
