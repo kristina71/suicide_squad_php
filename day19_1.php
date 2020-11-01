@@ -3,9 +3,6 @@ namespace day19;
 require __DIR__.'/exceptions/BadSumException.php';
 require __DIR__.'/exceptions/BadFormatException.php';
 
-$array=[18,31,24,12,45,13,41];
-$values=[13,41];
-
 /**
  * @param array $array
  * @param array $values
@@ -43,5 +40,3 @@ function checkArrayFormat(Array $array){
 
     return $array;
 }
-
-echo checkArray($array, $values);

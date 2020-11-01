@@ -1,10 +1,6 @@
 <?php
 namespace day18;
 
-$nominalArray = [100,200, 5000, 1000,2000,500];
-$sum = 1000;
-$result = [];
-
 /**
  * @param $sum
  * @param $nominalArray
@@ -48,7 +44,3 @@ function checkArrayFormat(Array $array){
 
     return $array;
 }
-
-getNominalAndCount($sum, $nominalArray, $result);
-
-print_r($result);

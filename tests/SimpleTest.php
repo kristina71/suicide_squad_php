@@ -96,4 +96,30 @@ class SimpleTest extends TestCase
         $expectedArray = [100,500,2000,5000];
         $this->assertEquals(\day18\deleteNotUseNominal($nominalArray, $existValues),$expectedArray);
     }
+
+    public function getNominalAndCountProvider()
+    {
+        return [
+            [[100,200, 500, 1000,2000,5000], 400 ,[100=>3,200=>2,500=>1,2000=>1,5000=>10],[0=>[200=>2]]]
+        ];
+    }
+
+    /**
+     * @param array $nominalArray
+     * @param int $sum
+     * @param array $existValues
+     * @param array $expectedArray
+     * @throws \MyException\BadFormatException
+     * @throws \MyException\BadSumException
+     *
+     * @test
+     * @group day18
+     * @dataProvider getNominalAndCountProvider
+     *
+     */
+    public function testGetNominalAndCount($nominalArray, $sum, $existValues, $expectedArray){
+        $result = [];
+        $actualArray=\day18\getNominalAndCount($sum, $nominalArray, $result, $existValues);
+        $this->assertEquals($actualArray,$expectedArray);
+    }
 }

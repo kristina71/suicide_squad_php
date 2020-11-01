@@ -93,16 +93,3 @@ function digitToString($value)
 
     return $str . " " . $cat . " не знают php";
 }
-
-echo num2str(0) . "<br>";      // ноль котиков
-echo num2str(150) . "<br>"; // сто пятьдесят котиков
-echo num2str(1203) . "<br>";   // одна тысяча двести три котика
-echo num2str(2541) . "<br>";   // две тысячи пятьсот сорок один котик
-echo num2str(100000) ."<br>"; // сто тысяч котиков
-
-echo "------";
-echo digitToString(0) . "<br>";      // ноль котиков
-echo digitToString(150) . "<br>"; // сто пятьдесят котиков
-echo digitToString(1203) . "<br>";   // одна тысяча двести три котика
-echo digitToString(2541) . "<br>";   // две тысячи пятьсот сорок один котик
-echo digitToString(100000); // сто тысяч котиков
